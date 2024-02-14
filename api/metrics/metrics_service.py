@@ -45,7 +45,7 @@ class MetricsService():
         except Exception as e:
             error_message = 'Failed to generate access_count metrics. Error:%s'%(e)
             self.log.error(error_message)
-            raise HTTPException((status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail={'error':error_message}))
+            raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail={'error':error_message})
 
     def get_access_count_metric_from_db(self, short_url, since):
         # MongoDB query to retrieve access metrics for a specified time range

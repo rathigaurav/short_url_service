@@ -4,10 +4,10 @@ FROM python:3.8
 WORKDIR /app
 
 # Create a log folder
-RUN mkdir /app/log
+RUN mkdir /app/logs
 
 # Create an empty log file inside the log folder
-RUN touch /app/log/app.log
+RUN touch /app/logs/app.log
 
 COPY requirements.txt .
 

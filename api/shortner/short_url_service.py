@@ -43,7 +43,7 @@ class ShortUrlService():
         except Exception as e:
             error_message = 'Failed to generate short_url. Error:%s'%(e)
             self.log.error(error_message)
-            raise HTTPException((status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail={'error':error_message}))
+            raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail={'error':error_message})
 
     
     def get_long_url(self, short_url):
@@ -63,7 +63,7 @@ class ShortUrlService():
         except Exception as e:
             error_message = 'Failed to get long_url. Error:%s'%(e)
             self.log.error(error_message)
-            raise HTTPException((status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail={'error':error_message}))
+            raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail={'error':error_message})
 
     def delete_short_url(self, short_url):
         """
@@ -77,7 +77,7 @@ class ShortUrlService():
         except Exception as e:
             error_message = 'Failed to delete short_url. Error:%s'%(e)
             self.log.error(error_message)
-            raise HTTPException((status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail={'error':error_message}))
+            raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail={'error':error_message})
 
     
     def short_url_generator(self):
