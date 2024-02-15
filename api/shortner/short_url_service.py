@@ -43,7 +43,7 @@ class ShortUrlService():
         except Exception as e:
             error_message = 'Failed to generate short_url. Error:%s'%(e)
             self.log.error(error_message)
-            raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail={'error':error_message})
+            raise e
 
     
     def get_long_url(self, short_url):
@@ -63,7 +63,7 @@ class ShortUrlService():
         except Exception as e:
             error_message = 'Failed to get long_url. Error:%s'%(e)
             self.log.error(error_message)
-            raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail={'error':error_message})
+            raise e
 
     def delete_short_url(self, short_url):
         """
@@ -77,7 +77,7 @@ class ShortUrlService():
         except Exception as e:
             error_message = 'Failed to delete short_url. Error:%s'%(e)
             self.log.error(error_message)
-            raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail={'error':error_message})
+            raise e
 
     
     def short_url_generator(self):
@@ -134,7 +134,7 @@ class ShortUrlService():
     def delete_short_url_from_db(self, short_url):
         result = self.mongodb_service.delete_short_url(short_url)
         if result.deleted_count == 0 :
-            message = 'short_url: %s does not exist.'%(short_url)
+            message = 'short_url: %s not found.'%(short_url)
             self.log.error(message)
             raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail={'error':message})
         return result
