@@ -64,4 +64,4 @@ docker-compose down
 5. Monitoring
     I haven't built for monitoring and alerting as it was optional. However if the app is deployed on AWS we can leverage AWS cloud watch for logging and Datadog for monitoring requirements.
 
-    
+6. Attaching design Diagram : https://github.com/rathigaurav/short_url_service/assets/46521841/ad76bdbf-c02e-4e89-a61a-d95a1aab1086
