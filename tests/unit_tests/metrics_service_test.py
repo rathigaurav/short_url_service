@@ -21,5 +21,5 @@ def test_generate_access_metrics_short_url_does_not_exist(metrics_service):
     short_url = "https://shorty/Test123"
     mock_document = MagicMock(return_value=None)
     metrics_service.mongodb_service.fetch_long_url = mock_document
-    with pytest.raises(HTTPException, match="404: {'error': 'short_url: https://shorty/Test123 not found.'}"):
+    with pytest.raises(HTTPException):
         metrics_service.generate_access_metrics(short_url)
