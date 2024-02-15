@@ -11,8 +11,8 @@ Before running the application, ensure that you have Docker and Docker Compose i
 Follow these steps to set up and run the FastAPI application:
 1. **Clone the Repository:**
     ```
-    git clone <repository-url>
-    cd <repository-directory>
+    git clone https://github.com/rathigaurav/short_url_service.git
+    cd short_url_service
     ```
 2. **Build and Run the Docker Containers:**
     ```
@@ -23,9 +23,16 @@ Follow these steps to set up and run the FastAPI application:
 
 4. **For executing test cases:**
     I have added unit and e2e test cases
-    1. brew install python
-    2. pip3 install -r requirements.txt
-    3. pytest -v tests/
+    1. Install Python: brew install python
+    2. Install requirements: pip3 install -r requirements.txt
+    3. For running unit_test : pytest -v tests/tests/unit_tests/ 
+    4. For running e2e_test(app should be running in docker) : pytest -v tests/tests/e2e_tests/
+
+4. **Curl Commands for testing:**
+    1. curl -X POST -H "Content-Type: application/json" -d '{"long_url": "https://www.cloudflare.com/", "expiration_time": "208634710000"}' http://127.0.0.1:8000/short_url/create
+    2. curl -X GET -H "Content-Type: application/json" http://127.0.0.1:8000/short_url/lookup/<short_url>
+    3. curl -X DELETE -H "Content-Type: application/json" http://127.0.0.1:8000/short_url/delete/<short_url>
+    4. curl -X GET -H "Content-Type: application/json" http://127.0.0.1:8000/metrics/access_count/<short_url>
 
 ## Additional Information
 1. The FastAPI application is exposed on port 8000.
